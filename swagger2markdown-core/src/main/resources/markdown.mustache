@@ -1,0 +1,74 @@
+{{#swagger}}
+{{#info}}
+# {{#title}}{{title}}{{/title}} - {{#version}}{{version}}{{/version}}
+[ Base URL: {{#host}}{{host}}{{/host}}{{#basePath}}{{basePath}}{{/basePath}} ]
+{{/info}}
+
+{{#info}}
+{{#description}}{{description}}{{/description}}
+{{#termsOfService}}[Terms of Service]({{termsOfService}}){{/termsOfService}}
+{{#contact}}
+{{#email}}{{#name}}[Contact {{name}}]({{email}}){{/name}}{{/email}}{{#email}}{{^name}}[Contact the Developer]({{email}}){{/name}}{{/email}}
+{{#url}}{{#name}}[{{name}} - Website]({{url}}){{/name}}{{/url}}
+{{#url}}{{^name}}[The Developer - Website]({{url}}){{/name}}{{/url}}
+{{/contact}}
+{{#license}}
+{{#name}}[{{name}}]{{/name}}({{#url}}{{url}}{{/url}})
+{{/license}}
+{{/info}}
+{{#externalDocs}}
+{{#description}}[{{description}}]{{/description}}{{^description}}[{{#url}}{{url}}{{/url}}]{{/description}}({{#url}}{{url}}{{/url}})
+{{/externalDocs}}
+
+{{#schemes}}
+## Supported Schemes:
+- {{schemes}}
+{{/schemes}}
+
+{{#securityDefinitions}}
+## Security Definitions:
+- TODO
+{{/securityDefinitions}}
+
+
+## Services
+| Path | POST | GET | PUT | PATCH | DELETE | HEAD | OPTIONS |
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+
+{{#operations}}
+|{{uri}}|{{#path.post}}x{{/path.post}}|{{#path.get}}x{{/path.get}}|{{#path.put}}x{{/path.put}}|{{#path.patch}}x{{/path.patch}}|{{#path.delete}}x{{/path.delete}}|{{#path.head}}x{{/path.head}}|{{#path.options}}x{{/path.options}}|
+{{/operations}}
+
+{{#operations}}
+
+{{#path}}
+
+{{#post}}
+
+### {{#summary}}{{summary}}{{/summary}}
+```sh
+POST {{uri}}
+```
+
+#### Description:
+
+{{#description}}{{description}}{{/description}}
+
+#### Consumes:
+{{#consumes}}{{consumes}}{{/consumes}}
+
+#### Parameters:
+| Type | Name | Description | Schema | Default |
+| ------ | ------ | ------ | ------ | ------ |
+
+#### Http Responses:
+| Http Code | Description | Schema |
+| ------ | ------ | ------ |
+
+#### Produces: 
+{{#produces}}{{produces}}{{/produces}}
+
+{{/post}}
+{{/path}}
+{{/operations}}
+{{/swagger}}
