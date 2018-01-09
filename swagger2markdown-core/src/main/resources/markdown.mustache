@@ -1,6 +1,6 @@
 {{#swagger}}
 {{#info}}
-# {{#title}}{{title}}{{/title}} - {{#version}}{{version}}{{/version}}
+# {{#title}}{{title}}{{/title}} - `{{#version}}{{version}}{{/version}}`
 [ Base URL: {{#host}}{{host}}{{/host}}{{#basePath}}{{basePath}}{{/basePath}} ]
 {{/info}}
 
@@ -8,9 +8,8 @@
 {{#description}}{{description}}{{/description}}
 {{#termsOfService}}[Terms of Service]({{termsOfService}}){{/termsOfService}}
 {{#contact}}
-{{#email}}{{#name}}[Contact {{name}}]({{email}}){{/name}}{{/email}}{{#email}}{{^name}}[Contact the Developer]({{email}}){{/name}}{{/email}}
-{{#url}}{{#name}}[{{name}} - Website]({{url}}){{/name}}{{/url}}
-{{#url}}{{^name}}[The Developer - Website]({{url}}){{/name}}{{/url}}
+{{#email}}[Contact the Developer]({{email}}){{/email}}
+{{#url}}[The Developer - Website]({{url}}){{/url}}
 {{/contact}}
 {{#license}}
 {{#name}}[{{name}}]{{/name}}({{#url}}{{url}}{{/url}})
@@ -30,45 +29,45 @@
 - TODO
 {{/securityDefinitions}}
 
-
-## Services
+# Services
 | Path | POST | GET | PUT | PATCH | DELETE | HEAD | OPTIONS |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-
 {{#operations}}
 |{{uri}}|{{#path.post}}x{{/path.post}}|{{#path.get}}x{{/path.get}}|{{#path.put}}x{{/path.put}}|{{#path.patch}}x{{/path.patch}}|{{#path.delete}}x{{/path.delete}}|{{#path.head}}x{{/path.head}}|{{#path.options}}x{{/path.options}}|
 {{/operations}}
 
 {{#operations}}
-
 {{#path}}
-
 {{#post}}
-
 ### {{#summary}}{{summary}}{{/summary}}
 ```sh
 POST {{uri}}
 ```
-
 #### Description:
-
 {{#description}}{{description}}{{/description}}
 
 #### Consumes:
-{{#consumes}}{{consumes}}{{/consumes}}
+{{#consumes}}
+-{{consumes}}
+{{/consumes}}
 
 #### Parameters:
 | Type | Name | Description | Schema | Default |
 | ------ | ------ | ------ | ------ | ------ |
+{{#parameters}}
+|{{in}}|{{name}}|{{description}}| {{#schema}}{{#genericRef}}{{#simpleRef}}{{simpleRef}}{{/simpleRef}}{{/genericRef}}{{/schema}}| |
+{{/parameters}}
 
 #### Http Responses:
 | Http Code | Description | Schema |
 | ------ | ------ | ------ |
 
 #### Produces: 
-{{#produces}}{{produces}}{{/produces}}
-
+{{#produces}}
+-{{produces}}
+{{/produces}}
 {{/post}}
+
 {{/path}}
 {{/operations}}
 {{/swagger}}

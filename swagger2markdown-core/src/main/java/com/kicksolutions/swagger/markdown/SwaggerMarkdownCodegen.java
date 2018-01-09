@@ -86,9 +86,7 @@ public class SwaggerMarkdownCodegen {
 		List<CodegenOperation> operations = new ArrayList<>();
 		
 		for(Map.Entry<String, Path> entry: paths.entrySet()) {
-			
 			Path pathObject = entry.getValue();
-			
 			operations.add(new CodegenOperation(entry.getKey(), pathObject));
 		}
 		
